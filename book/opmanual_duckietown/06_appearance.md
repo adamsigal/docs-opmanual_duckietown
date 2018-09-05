@@ -333,3 +333,17 @@ TOWRITE: towrite
 The lights must be at a height of exactly 20 cm  above the center of the intersection tile.
 
 The Raspberry Pi should sit on a pole that is based at the corner of the tile outside of the allowable driving region.
+
+## Road obstacle placement
+These object placement rules were defined for objects in the *OpenAI-Gym Duckietown simulator*, but also apply to real-life Duckietown maps. Here, the measurement *T* is used, where where 1T = 1 tile-length = 2 feet, for simplicity.
+
+**Rules:**
+
+* *Traffic signs* on **straight** tiles may only appear between 0.25T and 0.75T
+* Only one pair of *traffic signs* may appear per **straight** or **curved** tile
+* *Signs* may not appear on road; must be at a position ≤ 0T or ≥ 1T (edge of neighboring tiles)
+* No more than one *non-sign* object may appear on a **straight** tile
+* A **curve** tile may have, at most, a pair of *signs*, and one of: a *duckie pedestrian* (only at beginning or end of tile), a *cone* (anywhere), or a *barrier* (anywhere)
+* *Barriers*, when on the road may only be perpendicular (horizontally blocking one lane)
+* *Cones* may appear at any horizontal coordinate on a **straight** tile, but all other objects must be at 0.75T or 0.25T
+* Objects on non-driveable tiles may not overlap onto driveable tiles, and the white lines on the extremities of driveable tiles may not be covered by objects
